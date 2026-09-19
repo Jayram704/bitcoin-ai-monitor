@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --cyber-bg: #050811;
+    --cyber-card: rgba(13, 20, 38, 0.75);
+    --cyber-border: rgba(56, 189, 248, 0.25);
+    --cyber-cyan: #38bdf8;
+    --cyber-red: #ef4444;
+    --cyber-amber: #f59e0b;
+    --cyber-green: #10b981;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body, html {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--cyber-bg);
+    color: #f1f5f9;
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    overflow: hidden;
+    user-select: none;
+  }
+}
+
+/* CRT Scanline & Phosphor Overlay */
+.scanlines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.28) 50%),
+    linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+  background-size: 100% 3px, 6px 100%;
+  pointer-events: none;
+  z-index: 15;
+}
+
+/* Subtle Tactical Grid in Canvas Background */
+.cyber-grid-bg {
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.05) 0%, transparent 80%),
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 100% 100%, 40px 40px, 40px 40px;
+}
+
+/* Custom Scrollbar for Alert Queue */
+.custom-scroll::-webkit-scrollbar,
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.custom-scroll::-webkit-scrollbar-track,
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.6);
+  border-radius: 4px;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-thumb {
+  background: rgba(56, 189, 248, 0.35);
+  border-radius: 4px;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb:hover,
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(56, 189, 248, 0.7);
+}
+
+/* Glassmorphic Panel Shadows & Glow Effects */
+.hud-glow {
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.8), inset 0 0 15px rgba(56, 189, 248, 0.05);
+}
+
+.hud-glow-red {
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.25), inset 0 0 10px rgba(239, 68, 68, 0.1);
+}
